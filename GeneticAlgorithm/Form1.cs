@@ -19,12 +19,13 @@ namespace GeneticAlgorithm
         
         private void button1_Click(object sender, EventArgs e)
         {
-            Chromosome c1 = new Chromosome();
+            listBox1.Items.Clear();
             List<Chromosome> population = new List<Chromosome>();
             int totalPop = Convert.ToInt32(numPopulation.Value);
             population =Chromosome.CreatePop(totalPop);
             MessageBox.Show(population[1].GeneX.ToString() + "<<<<<<<<<<<" + population[1].GeneY.ToString() + "<<<<<<<<<<<<" + population[1].targetFuncRes.ToString());
-            
+
+            double[] avgtargetfunc = new double[Convert.ToInt32(numIteration.Value)];
             for (int iteration = 1; iteration <= Convert.ToInt32(numIteration.Value);iteration++)
             {
                 population = Iteration(population,Convert.ToDouble(numMutation.Value),Convert.ToInt32(numPopulation.Value));
@@ -35,9 +36,10 @@ namespace GeneticAlgorithm
                 }
                 avgoftargetfunc /= population.Count;
                 listBox1.Items.Add(Math.Round(avgoftargetfunc,4));
-                DrawGraph(avgoftargetfunc);
+                avgtargetfunc[iteration-1]=  avgoftargetfunc;
 
             }
+            DrawGraph(avgtargetfunc);
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -58,7 +60,7 @@ namespace GeneticAlgorithm
             pop= Heredity.HeredityFunc(pop, numMut);
             return pop;
         }
-        private void DrawGraph(double avg)
+        private void DrawGraph(double [] avg)
         {
             foreach (var series in chart1.Series)
             {
@@ -80,8 +82,13 @@ namespace GeneticAlgorithm
             }
             catch (Exception)
             { }
-            this.chart1.Series["Average Fitness"].Points.Add(avg);
-            this.chart1.Series["Minimum Fitness"].Points.Add(0);
+            foreach (var item in avg)
+            {
+                this.chart1.Series["Average Fitness"].Points.Add(item);
+                this.chart1.Series["Minimum Fitness"].Points.Add(0);
+            }
+            
+            
         }
     }
 }

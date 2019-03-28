@@ -34,13 +34,19 @@ namespace GeneticAlgorithm
 
         public static List<Chromosome> CreatePop(int totalPop)
         {
+            //Chromosome[] popArray = new Chromosome[totalPop];
             List<Chromosome> pop = new List<Chromosome>();
             //Starts at 0 as its an array
             for (int i = 0; i < totalPop; i++)
             {
+                //popArray[i]= new Chromosome();
                 Chromosome tba = new Chromosome();
                 pop.Add(tba);
             }
+            /*foreach (var item in popArray)
+            {
+                pop.Add(item);
+            }*/
             return pop;
         }
     }

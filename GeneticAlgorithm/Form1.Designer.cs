@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPopulation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIteration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMutation)).BeginInit();
@@ -48,7 +50,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(248, 90);
+            this.button1.Location = new System.Drawing.Point(220, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -63,7 +65,7 @@
             0,
             0,
             0});
-            this.numPopulation.Location = new System.Drawing.Point(203, 12);
+            this.numPopulation.Location = new System.Drawing.Point(175, 12);
             this.numPopulation.Maximum = new decimal(new int[] {
             30,
             0,
@@ -86,9 +88,9 @@
             // 
             // numIteration
             // 
-            this.numIteration.Location = new System.Drawing.Point(203, 38);
+            this.numIteration.Location = new System.Drawing.Point(175, 38);
             this.numIteration.Maximum = new decimal(new int[] {
-            250,
+            50,
             0,
             0,
             0});
@@ -109,20 +111,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 14);
+            this.label1.Location = new System.Drawing.Point(9, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 13);
+            this.label1.Size = new System.Drawing.Size(163, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Population: (2-20 even numbers)";
+            this.label1.Text = "Population: (6-30, even numbers)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 40);
+            this.label2.Location = new System.Drawing.Point(12, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Iteration: (5-250)";
+            this.label2.Text = "Iteration: (5-50)";
             // 
             // numMutation
             // 
@@ -132,17 +134,12 @@
             0,
             0,
             131072});
-            this.numMutation.Location = new System.Drawing.Point(203, 64);
+            this.numMutation.Location = new System.Drawing.Point(175, 64);
             this.numMutation.Maximum = new decimal(new int[] {
             2,
             0,
             0,
             65536});
-            this.numMutation.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
             this.numMutation.Name = "numMutation";
             this.numMutation.Size = new System.Drawing.Size(120, 20);
             this.numMutation.TabIndex = 2;
@@ -155,16 +152,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 66);
+            this.label3.Location = new System.Drawing.Point(9, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 13);
+            this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Mutation Value: (0.05-0.2)";
+            this.label3.Text = "Mutation Value: (0-0.2)";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(329, 12);
+            this.listBox1.Location = new System.Drawing.Point(12, 155);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 95);
             this.listBox1.TabIndex = 5;
@@ -175,7 +172,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(468, 12);
+            this.chart1.Location = new System.Drawing.Point(301, 12);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -185,15 +182,36 @@
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(192, 317);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(408, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Red is Avg for each iteration, blue(always at zero) is minimum value for target f" +
+    "unction";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(246, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "This shows what is the exact avg for each iteration";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 430);
+            this.ClientSize = new System.Drawing.Size(612, 339);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numMutation);
             this.Controls.Add(this.numIteration);
@@ -221,6 +239,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
